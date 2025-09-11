@@ -1,12 +1,19 @@
+import { type FieldList } from "./FileDetails";
 interface FieldsProps {
-  file: File;
+  fieldList: FieldList;
 }
 
-function Fields({ file }: FieldsProps) {
+function Fields({ fieldList }: FieldsProps) {
+  if (!fieldList || fieldList.length === 0) return null;
+
   return (
     <div>
       <h2>PDF fields</h2>
-      <p>{file.name}</p>
+      {fieldList.map((field, index) => (
+        <div key={index}>
+          <strong>{field.name}:</strong> {field.value}
+        </div>
+      ))}
     </div>
   );
 }

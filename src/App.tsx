@@ -5,6 +5,7 @@ import { useState } from "react";
 
 function App() {
   const [file, setFile] = useState<File | null>(null);
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-cyan-50 to-cyan-100">
       <Navbar />
